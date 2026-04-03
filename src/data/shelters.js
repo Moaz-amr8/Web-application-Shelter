@@ -60,6 +60,19 @@ export const shelterData = {
         electricity_quality: "Excellent",//bad Good Excellent
         gas_quality: "Acceptable",
       }
+    },
+    {
+      type: "Feature",
+      geometry: { type: "Point", coordinates: [31.278829, 30.065868 ] },
+      properties: {
+        id: 5,
+        name: "ملجأ fionaر",
+        address: "ر",
+        capacity: 35,
+        current_occupancy: 30,
+        electricity_quality: "Excellent",
+        gas_quality: "Poor",
+      }
     }
   ]
 };

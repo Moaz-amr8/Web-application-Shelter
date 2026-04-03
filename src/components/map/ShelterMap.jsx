@@ -22,14 +22,14 @@ const shelterIcon = L.divIcon({
   html: `<div style="
     width:36px;height:36px;border-radius:50%;
     background:hsl(200,90%,50%);
-    border:3px solid hsl(0,0%,100%);
+    border:3px solid hsl(1,0%,100%);
     display:flex;align-items:center;justify-content:center;
     font-size:16px;
     box-shadow:0 4px 16px rgba(10,170,220,0.5);
     cursor:pointer;
   ">🏥</div>`,
-  iconSize: [36, 36],
-  iconAnchor: [18, 18],
+  iconSize: [10, 10],
+  iconAnchor: [14, 15],
   popupAnchor: [0, -22],
 });
 
@@ -160,7 +160,7 @@ const ShelterMap = () => {
       f.properties.address.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const defaultCenter = [48.8566, 2.3522];
+  const defaultCenter = [31.368, 30.062];
 
   return (
     <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
@@ -233,10 +233,10 @@ const ShelterMap = () => {
           ref={draggableRef}
           style={{
             position: "absolute",
-            top: 24,
-            left: 24,
+            top: 16,
+            left: 16,
             zIndex: 1000,
-            width: 310,
+            width: 300,
             background: "hsl(220 22% 12%)",
             border: "1px solid hsl(220 15% 22%)",
             borderRadius: 16,
@@ -246,24 +246,24 @@ const ShelterMap = () => {
           }}
         >
           {/* Top accent */}
-          <div style={{ height: 3, background: "linear-gradient(90deg, hsl(200 90% 50%), hsl(145 65% 42%))" }} />
+          <div style={{ height: 2, background: "linear-gradient(80deg, hsl(200 90% 50%), hsl(145 65% 42%))" }} />
 
           {/* Handle / Header */}
           <div
             className="drag-handle"
             style={{
-              padding: "12px 16px 10px",
+              padding: "10px 20px 5px",
               cursor: "grab",
-              borderBottom: "1px solid hsl(220 15% 18%)",
+              borderBottom: "2px solid hsl(220 15% 18%)",
               display: "flex",
               alignItems: "center",
-              gap: 10,
+              gap: 5,
               userSelect: "none",
             }}
           >
             <span style={{ fontSize: 20 }}>🚨</span>
             <div>
-              <div style={{ fontSize: 14, fontWeight: 800, color: "hsl(210 20% 95%)", letterSpacing: "0.03em" }}>
+              <div style={{ fontSize: 14, fontWeight: 400, color: "hsl(210 20% 95%)", letterSpacing: "0.03em" }}>
                 Emergency Shelter
               </div>
               <div style={{ fontSize: 10, color: "hsl(215 15% 50%)", letterSpacing: "0.05em" }}>
@@ -276,7 +276,7 @@ const ShelterMap = () => {
           {/* GPS Status */}
           <div
             style={{
-              padding: "8px 16px",
+              padding: "5px 10px",
               borderBottom: "1px solid hsl(220 15% 18%)",
               display: "flex",
               alignItems: "center",
@@ -286,10 +286,10 @@ const ShelterMap = () => {
           >
             <span
               style={{
-                width: 8,
-                height: 8,
+                width: 10,
+                height: 10,
                 borderRadius: "50%",
-                background: userLocation ? "hsl(145 65% 42%)" : "hsl(38 90% 55%)",
+                background: userLocation ? "hsl(105 55% 52%)" : "hsl(98 90% 45%)",
                 boxShadow: userLocation
                   ? "0 0 6px hsl(145,65%,42%)"
                   : "0 0 6px hsl(38,90%,55%)",
@@ -304,18 +304,20 @@ const ShelterMap = () => {
           </div>
 
           {/* Search */}
-          <div style={{ padding: "10px 14px", borderBottom: "1px solid hsl(220 15% 18%)" }}>
+          <div style={{ padding: "5px 5px", borderBottom: "1px solid hsl(220 15% 18%)" }}>
             <div style={{ position: "relative" }}>
-              <span style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", fontSize: 14, pointerEvents: "none" }}>
+              <span style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", fontSize: 14, pointerEvents: "select" }}>
                 🔍
               </span>
               <input
                 type="text"
-                placeholder="Search shelters..."
+                placeholder="Search for shelters..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
                   width: "100%",
+                  maxWidth: "340px",
+                  flexDirection: "column",
                   padding: "8px 10px 8px 32px",
                   borderRadius: 8,
                   background: "hsl(220 15% 16%)",
@@ -324,13 +326,14 @@ const ShelterMap = () => {
                   fontSize: 13,
                   outline: "none",
                   boxSizing: "border-box",
+                  overflow:"hidden",
                 }}
               />
             </div>
           </div>
 
           {/* Shelter list */}
-          <div style={{ maxHeight: 240, overflowY: "auto", padding: "8px 0" }}>
+          <div style={{ maxHeight: 100, overflowY: "auto", padding: "10px 10px" }}>
             {filteredShelters.length === 0 && (
               <div style={{ padding: "12px 16px", color: "hsl(215 15% 45%)", fontSize: 13, textAlign: "center" }}>
                 No shelters found
@@ -348,16 +351,16 @@ const ShelterMap = () => {
                   key={p.id}
                   onClick={() => handleNavigate(p)}
                   style={{
-                    padding: "10px 16px",
+                    padding: "8px 8px",
                     cursor: "pointer",
-                    borderBottom: "1px solid hsl(220 15% 16%)",
-                    background: isTarget ? "hsl(200 90% 50% / 0.08)" : "transparent",
-                    borderLeft: isTarget ? "3px solid hsl(200 90% 50%)" : "3px solid transparent",
-                    transition: "background 0.15s",
+                    borderBottom: "0.3px solid hsl(200 20% 50%)",
+                    background: isTarget ? "hsl(200 90% 50% / 0.09)" : "transparent",
+                    borderLeft: isTarget ? "3px solid hsl(200 90% 50%)" : "15px solid transparent",
+                    transition: "background 1s",
                   }}
                 >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 5 }}>
-                    <div style={{ fontSize: 13, fontWeight: 600, color: "hsl(210 20% 90%)", flex: 1, marginRight: 8, lineHeight: 1.3 }}>
+                    <div style={{ fontSize: 13, fontWeight: 600, color: "hsl(210 20% 90%)", flex:   1, marginRight: 8, lineHeight: 1.3 }}>
                       {p.name}
                     </div>
                     <span
@@ -382,10 +385,10 @@ const ShelterMap = () => {
                         width: `${pct}%`,
                         height: "100%",
                         borderRadius: 2,
-                        background: isFull
+                        background:isFull
                           ? "hsl(0 75% 55%)"
                           : pct >= 80
-                          ? "hsl(38 90% 55%)"
+                          ? "hsl(40 90% 55%)"
                           : "hsl(145 65% 42%)",
                       }}
                     />
@@ -408,7 +411,7 @@ const ShelterMap = () => {
           {nearestShelter && userLocation && (
             <div
               style={{
-                padding: "10px 16px",
+                padding: "5px 5px",
                 borderTop: "1px solid hsl(220 15% 18%)",
                 background: "hsl(200 90% 50% / 0.06)",
               }}
@@ -431,9 +434,9 @@ const ShelterMap = () => {
                 <button
                   style={{
                     background: "hsl(200 90% 50%)",
-                    border: "none",
-                    borderRadius: 8,
-                    padding: "6px 12px",
+                    border: "solid black 1px",
+                    borderRadius: 20,
+                    padding: "4px 35px",
                     fontSize: 12,
                     fontWeight: 700,
                     color: "hsl(220 20% 10%)",

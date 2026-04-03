@@ -6,8 +6,8 @@ const Stat = ({ label, value, icon }) => (
     style={{
       display: "flex",
       flexDirection: "column",
-      gap: 3,
-      padding: "10px 12px",
+      gap: 1,
+      padding: "2px 12px",
       borderRadius: 10,
       background: "hsl(220 15% 16%)",
       border: "1px solid hsl(220 15% 22%)",
@@ -30,7 +30,7 @@ const UtilityRow = ({ icon, label, children }) => (
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: "8px 10px",
+      padding: "3px 4px",
       borderRadius: 8,
       background: "hsl(220 15% 15%)",
     }}
@@ -53,15 +53,17 @@ const RouteDetailsPanel = ({ shelter, distance, duration, isLoading, onClear }) 
     <div
       style={{
         position: "fixed",
-        bottom: 24,
-        right: 24,
+        bottom: 10,
+        right: 4,
         zIndex: 1000,
-        width: 300,
+        width: 200,
+        height:200,
         background: "hsl(220 22% 12%)",
         border: "1px solid hsl(220 15% 22%)",
         borderRadius: 16,
         boxShadow: "0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px hsl(220 15% 18%)",
-        overflow: "hidden",
+        overflowY: "auto",
+        overflowX:"hidden",
         fontFamily: "'Inter', system-ui, sans-serif",
       }}
     >
@@ -125,7 +127,7 @@ const RouteDetailsPanel = ({ shelter, distance, duration, isLoading, onClear }) 
       {/* Vital Status Section */}
       <div style={{ padding: "12px 16px" }}>
         <div style={{ fontSize: 10, fontWeight: 700, color: "hsl(215 15% 50%)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 10 }}>
-          ⚕️ Vital Shelter Status
+          ⚕️ Mas Shelter Status
         </div>
 
         {/* Available Spaces */}
