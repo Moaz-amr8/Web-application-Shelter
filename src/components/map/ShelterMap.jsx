@@ -95,6 +95,7 @@ const ShelterMap = () => {
   const [routeLoading, setRouteLoading] = useState(false);
   const [nearestShelter, setNearestShelter] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [panelOpen, setPanelOpen] = useState(false);
 
   const draggableRef = useRef(null);
 
@@ -160,7 +161,7 @@ const ShelterMap = () => {
       f.properties.address.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const defaultCenter = [31.368, 30.062];
+  const defaultCenter = [30.062, 31.368];
 
   return (
     <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
@@ -172,7 +173,7 @@ const ShelterMap = () => {
         zoomControl={false}
       >
         <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
           attribution='&copy; <a href="https://carto.com/">CARTO</a>'
           maxZoom={20}
         />
@@ -227,204 +228,272 @@ const ShelterMap = () => {
         })}
       </MapContainer>
 
-      {/* ─── Draggable Control Panel ─── */}
-      <Draggable nodeRef={draggableRef} bounds="parent" handle=".drag-handle">
-        <div
-          ref={draggableRef}
-          style={{
-            position: "absolute",
-            top: 16,
-            left: 16,
-            zIndex: 1000,
-            width: 300,
-            background: "hsl(220 22% 12%)",
-            border: "1px solid hsl(220 15% 22%)",
-            borderRadius: 16,
-            boxShadow: "0 16px 48px rgba(0,0,0,0.6)",
-            fontFamily: "'Inter', system-ui, sans-serif",
-            overflow: "hidden",
-          }}
-        >
-          {/* Top accent */}
-          <div style={{ height: 2, background: "linear-gradient(80deg, hsl(200 90% 50%), hsl(145 65% 42%))" }} />
+      {/* ───  Control Panel ─── */}
+      {/* ===== TOP NAV BAR ===== */}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+          fontFamily: "'Inter', system-ui, sans-serif",
+        }}
+      >
+        {/* Accent line */}
+        <div style={{ height: 3, background: "linear-gradient(90deg, hsl(200 90% 50%), hsl(145 65% 42%))" }} />
 
-          {/* Handle / Header */}
-          <div
-            className="drag-handle"
-            style={{
-              padding: "10px 20px 5px",
-              cursor: "grab",
-              borderBottom: "2px solid hsl(220 15% 18%)",
-              display: "flex",
-              alignItems: "center",
-              gap: 5,
-              userSelect: "none",
-            }}
-          >
+        {/* Main bar */}
+        <div
+          style={{
+            background: "hsl(220 22% 12%)",
+            borderBottom: "1px solid hsl(220 15% 20%)",
+            padding: "0 16px",
+            display: "flex",
+            alignItems: "center",
+            gap: 12,
+            height: 56,
+          }}
+          
+        >
+          {/* Logo / Title */}
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
             <span style={{ fontSize: 20 }}>🚨</span>
-            <div>
-              <div style={{ fontSize: 14, fontWeight: 400, color: "hsl(210 20% 95%)", letterSpacing: "0.03em" }}>
+            <div style={{ lineHeight: 1.2 }}>
+              <div style={{ fontSize: 14, fontWeight: 600, color: "hsl(210 20% 95%)" }}>
                 Emergency Shelter
               </div>
-              <div style={{ fontSize: 10, color: "hsl(215 15% 50%)", letterSpacing: "0.05em" }}>
-                GUIDE &amp; STATUS
+              {/* Hide subtitle on small screens */}
+              <div
+                style={{
+                  fontSize: 10,
+                  color: "hsl(215 15% 45%)",
+                  letterSpacing: "0.06em",
+                  display: window.innerWidth < 480 ? "none" : "block",
+                }}
+              >
+                GUIDE & STATUS
               </div>
             </div>
-            <span style={{ marginLeft: "auto", color: "hsl(215 15% 40%)", fontSize: 12 }}>⠿</span>
           </div>
 
-          {/* GPS Status */}
+          {/* GPS pill */}
           <div
             style={{
-              padding: "5px 10px",
-              borderBottom: "1px solid hsl(220 15% 18%)",
               display: "flex",
               alignItems: "center",
-              gap: 8,
-              fontSize: 12,
+              gap: 6,
+              background: "hsl(220 15% 18%)",
+              border: "1px solid hsl(220 15% 26%)",
+              borderRadius: 999,
+              padding: "4px 10px",
+              flexShrink: 0,
             }}
           >
             <span
               style={{
-                width: 10,
-                height: 10,
+                width: 8,
+                height: 8,
                 borderRadius: "50%",
-                background: userLocation ? "hsl(105 55% 52%)" : "hsl(98 90% 45%)",
-                boxShadow: userLocation
-                  ? "0 0 6px hsl(145,65%,42%)"
-                  : "0 0 6px hsl(38,90%,55%)",
                 flexShrink: 0,
+                background: userLocation ? "hsl(145 65% 42%)" : "hsl(38 90% 55%)",
               }}
             />
-            <span style={{ color: "hsl(215 15% 60%)" }}>
+            {/* On mobile just show the dot, on wider show coords */}
+            <span
+              style={{
+                fontSize: 11,
+                color: "hsl(215 15% 60%)",
+                display: window.innerWidth < 600 ? "none" : "inline",
+                whiteSpace: "nowrap",
+              }}
+            >
               {userLocation
-                ? `GPS Active — ${userLocation.lat.toFixed(4)}°, ${userLocation.lng.toFixed(4)}°`
-                : "Acquiring GPS signal..."}
+                ? `${userLocation.lat.toFixed(4)}°, ${userLocation.lng.toFixed(4)}°`
+                : "Acquiring GPS..."}
             </span>
           </div>
 
-          {/* Search */}
-          <div style={{ padding: "5px 5px", borderBottom: "1px solid hsl(220 15% 18%)" }}>
-            <div style={{ position: "relative" }}>
-              <span style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", fontSize: 14, pointerEvents: "select" }}>
-                🔍
-              </span>
-              <input
-                type="text"
-                placeholder="Search for shelters..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                style={{
-                  width: "100%",
-                  maxWidth: "340px",
-                  flexDirection: "column",
-                  padding: "8px 10px 8px 32px",
-                  borderRadius: 8,
-                  background: "hsl(220 15% 16%)",
-                  border: "1px solid hsl(220 15% 24%)",
-                  color: "hsl(210 20% 90%)",
-                  fontSize: 13,
-                  outline: "none",
-                  boxSizing: "border-box",
-                  overflow:"hidden",
-                }}
-              />
-            </div>
-          </div>
-
-          {/* Shelter list */}
-          <div style={{ maxHeight: 100, overflowY: "auto", padding: "10px 10px" }}>
-            {filteredShelters.length === 0 && (
-              <div style={{ padding: "12px 16px", color: "hsl(215 15% 45%)", fontSize: 13, textAlign: "center" }}>
-                No shelters found
-              </div>
-            )}
-            {filteredShelters.map((feature) => {
-              const p = feature.properties;
-              const available = p.capacity - p.current_occupancy;
-              const isFull = available <= 0;
-              const pct = Math.min(100, Math.round((p.current_occupancy / p.capacity) * 100));
-              const isTarget = targetShelter?.id === p.id;
-
-              return (
-                <div
-                  key={p.id}
-                  onClick={() => handleNavigate(p)}
-                  style={{
-                    padding: "8px 8px",
-                    cursor: "pointer",
-                    borderBottom: "0.3px solid hsl(200 20% 50%)",
-                    background: isTarget ? "hsl(200 90% 50% / 0.09)" : "transparent",
-                    borderLeft: isTarget ? "3px solid hsl(200 90% 50%)" : "15px solid transparent",
-                    transition: "background 1s",
-                  }}
-                >
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 5 }}>
-                    <div style={{ fontSize: 13, fontWeight: 600, color: "hsl(210 20% 90%)", flex:   1, marginRight: 8, lineHeight: 1.3 }}>
-                      {p.name}
-                    </div>
-                    <span
-                      style={{
-                        fontSize: 10,
-                        fontWeight: 700,
-                        padding: "2px 7px",
-                        borderRadius: 999,
-                        background: isFull ? "hsl(0 75% 55% / 0.15)" : "hsl(145 65% 42% / 0.15)",
-                        color: isFull ? "hsl(0 75% 55%)" : "hsl(145 65% 42%)",
-                        border: `1px solid ${isFull ? "hsl(0 75% 55% / 0.3)" : "hsl(145 65% 42% / 0.3)"}`,
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {isFull ? "FULL" : `${available} free`}
-                    </span>
-                  </div>
-                  {/* mini occupancy bar */}
-                  <div style={{ width: "100%", height: 4, borderRadius: 2, background: "hsl(220 15% 20%)", overflow: "hidden" }}>
-                    <div
-                      style={{
-                        width: `${pct}%`,
-                        height: "100%",
-                        borderRadius: 2,
-                        background:isFull
-                          ? "hsl(0 75% 55%)"
-                          : pct >= 80
-                          ? "hsl(40 90% 55%)"
-                          : "hsl(145 65% 42%)",
-                      }}
-                    />
-                  </div>
-                  <div style={{ display: "flex", gap: 12, marginTop: 5, fontSize: 11, color: "hsl(215 15% 50%)" }}>
-                    <span>⚡ {p.electricity_quality}</span>
-                    <span>🔥 {p.gas_quality}</span>
-                    {userLocation && (
-                      <span style={{ marginLeft: "auto" }}>
-                        📏 {turfDistanceLabel(userLocation, feature.geometry.coordinates)}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Nearest shelter suggestion */}
-          {nearestShelter && userLocation && (
-            <div
+          {/* Search — grows to fill space */}
+          <div style={{ position: "relative", flex: 1, maxWidth: 320 }}>
+            <span
               style={{
-                padding: "5px 5px",
-                borderTop: "1px solid hsl(220 15% 18%)",
-                background: "hsl(200 90% 50% / 0.06)",
+                position: "absolute",
+                left: 10,
+                top: "50%",
+                transform: "translateY(-50%)",
+                fontSize: 14,
+                pointerEvents: "none",
               }}
             >
-              <div style={{ fontSize: 10, fontWeight: 700, color: "hsl(200 90% 50%)", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 6 }}>
-                🎯 System Suggestion (Nearest)
-              </div>
+              🔍
+            </span>
+            <input
+              type="text"
+              placeholder="Search shelters..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onFocus={() => setPanelOpen(true)}
+              style={{
+                width: "100%",
+                padding: "7px 10px 7px 32px",
+                borderRadius: 8,
+                background: "hsl(220 15% 16%)",
+                border: "1px solid hsl(220 15% 24%)",
+                color: "hsl(210 20% 90%)",
+                fontSize: 13,
+                outline: "none",
+                boxSizing: "border-box",
+              }}
+            />
+          </div>
+
+          {/* Toggle button */}
+          <button
+            onClick={() => setPanelOpen((v) => !v)}
+            style={{
+              background: panelOpen ? "hsl(200 90% 50% / 0.15)" : "hsl(220 15% 18%)",
+              border: `1px solid ${panelOpen ? "hsl(200 90% 50% / 0.4)" : "hsl(220 15% 26%)"}`,
+              borderRadius: 8,
+              padding: "6px 12px",
+              color: panelOpen ? "hsl(200 90% 60%)" : "hsl(215 15% 60%)",
+              fontSize: 12,
+              fontWeight: 600,
+              cursor: "pointer",
+              whiteSpace: "nowrap",
+              flexShrink: 0,
+            }}
+          >
+            {panelOpen ? "▲ Close" : `▼ Shelters (${filteredShelters.length})`}
+          </button>
+          {nearestShelter && userLocation && (
+            <button
+              onClick={() => handleNavigate(nearestShelter.properties)}
+              style={{
+                display: window.innerWidth < 500 ? "none" : "flex",
+                background: "hsl(200 90% 50%)",
+                border: "none",
+                borderRadius: 20,
+                padding: "6px 16px",
+                fontSize: 12,
+                fontWeight: 700,
+                color: "hsl(220 20% 10%)",
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+              }}
+            >
+              🎯 Go →
+            </button>
+          )}
+        </div>
+  
+
+        {/* ===== DROPDOWN PANEL ===== */}
+        {panelOpen && (
+          <div
+            style={{
+              background: "hsl(220 22% 12%)",
+              borderBottom: "1px solid hsl(220 15% 20%)",
+              boxShadow: "0 12px 32px rgba(0,0,0,0.5)",
+              // Responsive width: full on mobile, capped on desktop
+              maxWidth: 480,
+              width: "100%",
+              margin: "0 auto 0 0", // align left; change to "0 auto" to center
+            }}
+          >
+            {/* Shelter list */}
+            <div style={{ maxHeight: "40vh", overflowY: "auto", padding: "8px 10px" }}>
+              {filteredShelters.length === 0 && (
+                <div style={{ padding: 16, color: "hsl(215 15% 45%)", fontSize: 13, textAlign: "center" }}>
+                  No shelters found
+                </div>
+              )}
+
+              {filteredShelters.map((feature) => {
+                const p = feature.properties;
+                const available = p.capacity - p.current_occupancy;
+                const isFull = available <= 0;
+                const pct = Math.min(100, Math.round((p.current_occupancy / p.capacity) * 100));
+                const isTarget = targetShelter?.id === p.id;
+
+                return (
+                  <div
+                    key={p.id}
+                    onClick={() => { handleNavigate(p); setPanelOpen(false); }}
+                    style={{
+                      padding: "8px 8px",
+                      cursor: "pointer",
+                      borderBottom: "1px solid hsl(220 15% 18%)",
+                      background: isTarget ? "hsl(200 90% 50% / 0.09)" : "transparent",
+                      borderLeft: isTarget ? "3px solid hsl(200 90% 50%)" : "3px solid transparent",
+                      transition: "background 0.2s",
+                    }}
+                  >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 4 }}>
+                      <div style={{ fontSize: 13, fontWeight: 600, color: "hsl(210 20% 90%)", flex: 1, marginRight: 8, lineHeight: 1.3 }}>
+                        {p.name}
+                      </div>
+                      <span
+                        style={{
+                          fontSize: 10,
+                          fontWeight: 700,
+                          padding: "2px 7px",
+                          borderRadius: 999,
+                          background: isFull ? "hsl(0 75% 55% / 0.15)" : "hsl(145 65% 42% / 0.15)",
+                          color: isFull ? "hsl(0 75% 55%)" : "hsl(145 65% 42%)",
+                          border: `1px solid ${isFull ? "hsl(0 75% 55% / 0.3)" : "hsl(145 65% 42% / 0.3)"}`,
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {isFull ? "FULL" : `${available} free`}
+                      </span>
+                    </div>
+
+                    {/* Occupancy bar */}
+                    <div style={{ width: "100%", height: 3, borderRadius: 2, background: "hsl(220 15% 20%)", overflow: "hidden", marginBottom: 4 }}>
+                      <div
+                        style={{
+                          width: `${pct}%`,
+                          height: "100%",
+                          borderRadius: 2,
+                          background: isFull ? "hsl(0 75% 55%)" : pct >= 80 ? "hsl(40 90% 55%)" : "hsl(145 65% 42%)",
+                        }}
+                      />
+                    </div>
+
+                    <div style={{ display: "flex", gap: 12, fontSize: 11, color: "hsl(215 15% 50%)" }}>
+                      <span>⚡ {p.electricity_quality}</span>
+                      <span>🔥 {p.gas_quality}</span>
+                      {userLocation && (
+                        <span style={{ marginLeft: "auto" }}>
+                          📏 {turfDistanceLabel(userLocation, feature.geometry.coordinates)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Nearest shelter strip */}
+            {nearestShelter && userLocation && (
               <div
-                style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer" }}
-                onClick={() => handleNavigate(nearestShelter.properties)}
+                style={{
+                  padding: "8px 12px",
+                  borderTop: "1px solid hsl(220 15% 18%)",
+                  background: "hsl(200 90% 50% / 0.06)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 12,
+                }}
               >
-                <div>
-                  <div style={{ fontSize: 12, fontWeight: 600, color: "hsl(210 20% 90%)" }}>
+                <div style={{ fontSize: 10, fontWeight: 700, color: "hsl(200 90% 50%)", letterSpacing: "0.07em", flexShrink: 0 }}>
+                  🎯 NEAREST
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontSize: 12, fontWeight: 600, color: "hsl(210 20% 90%)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                     {nearestShelter.properties.name}
                   </div>
                   <div style={{ fontSize: 11, color: "hsl(215 15% 50%)" }}>
@@ -432,24 +501,29 @@ const ShelterMap = () => {
                   </div>
                 </div>
                 <button
+                  onClick={() => { handleNavigate(nearestShelter.properties); setPanelOpen(false); }}
                   style={{
                     background: "hsl(200 90% 50%)",
-                    border: "solid black 1px",
+                    border: "none",
                     borderRadius: 20,
-                    padding: "4px 35px",
+                    padding: "5px 20px",
                     fontSize: 12,
                     fontWeight: 700,
                     color: "hsl(220 20% 10%)",
                     cursor: "pointer",
+                    flexShrink: 0,
                   }}
                 >
                   Go →
                 </button>
               </div>
-            </div>
-          )}
-        </div>
-      </Draggable>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Push map content down so it's not hidden under the navbar */}
+      <div style={{ paddingTop: 59 }} />
 
       {/* ─── Route Details Panel ─── */}
       <RouteDetailsPanel
