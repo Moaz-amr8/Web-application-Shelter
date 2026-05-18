@@ -12,7 +12,7 @@ const RoutingMachine = ({ from, to, onRouteFound, onRoutingStart }) => {
   useEffect(() => {
     if (!from || !to) {
       if (controlRef.current) {
-        try { map.removeControl(controlRef.current); } catch (_) {}
+        try { map.removeControl(controlRef.current); } catch (_) { }
         controlRef.current = null;
       }
       return;
@@ -27,7 +27,7 @@ const RoutingMachine = ({ from, to, onRouteFound, onRoutingStart }) => {
     toRef.current = to;
 
     if (controlRef.current) {
-      try { map.removeControl(controlRef.current); } catch (_) {}
+      try { map.removeControl(controlRef.current); } catch (_) { }
       controlRef.current = null;
     }
 
@@ -39,6 +39,8 @@ const RoutingMachine = ({ from, to, onRouteFound, onRoutingStart }) => {
       addWaypoints: false,
       fitSelectedRoutes: true,
       show: false,
+      draggableWaypoints: false,         // يمنع السحب
+      waypointMode: "snap",
       lineOptions: {
         styles: [
           { color: "hsl(200, 90%, 50%)", opacity: 0.9, weight: 5 },
@@ -73,7 +75,7 @@ const RoutingMachine = ({ from, to, onRouteFound, onRoutingStart }) => {
 
     return () => {
       if (controlRef.current) {
-        try { map.removeControl(controlRef.current); } catch (_) {}
+        try { map.removeControl(controlRef.current); } catch (_) { }
         controlRef.current = null;
       }
     };
