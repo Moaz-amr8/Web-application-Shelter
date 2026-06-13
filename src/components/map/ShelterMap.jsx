@@ -46,11 +46,15 @@ const userIcon = L.divIcon({
 });
 
 // ─── GPS Watcher ──────────────────────────────────────────────────────────────
-const GPSWatcher = ({ onLocationFound }) => {
+const GPSWatcher = ({ onLocationFound, onLocationError }) => {
   const calledRef = useRef(false);
   const map = useMapEvents({
     locationfound(e) {
       onLocationFound(e.latlng);
+    },
+    locationerror(e) {
+      console.warn("Location error:", e.message, "code:", e.code);
+      if (onLocationError) onLocationError(e.code);
     },
   });
   if (!calledRef.current) {
