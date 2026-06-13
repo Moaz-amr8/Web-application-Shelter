@@ -16,12 +16,12 @@ const ShelterPopup = ({ properties, onNavigate }) => {
             {properties.name}
           </h3>
         </div>
-        <p style={{ margin: 0, fontSize: 11, color: "hsl(215 15% 55%)", paddingLeft: 20 }}>
+        <p style={{ margin: 0, fontSize: 11, color: "hsl(0, 0%, 100%)", paddingLeft: 20 }}>
           {properties.address}
         </p>
       </div>
 
-      <div style={{ height: 1, background: "hsl(220 15% 22%)", marginBottom: 1 }} />
+      <div style={{ height: 1, background: "hsl(0, 0%, 100%)", marginBottom: 1 }} />
 
       {/* Occupancy */}
       <div style={{ marginBottom: 5 }}>
@@ -31,7 +31,7 @@ const ShelterPopup = ({ properties, onNavigate }) => {
         <OccupancyBar capacity={properties.capacity} current_occupancy={properties.current_occupancy} />
       </div>
 
-      <div style={{ height: 1, background: "hsl(220 15% 22%)", marginBottom: 10 }} />
+      <div style={{ height: 1, background: "hsl(245, 8%, 34%)", marginBottom: 10 }} />
 
       {/* Utilities */}
       <div style={{ marginBottom: 5 }}>
@@ -56,14 +56,14 @@ const ShelterPopup = ({ properties, onNavigate }) => {
         disabled={isFull}
         style={{
           width: "100%",
-          padding: "9px 0",
+          padding: "9px ",
           borderRadius: 8,
           border: "solid black 1px",
           cursor: isFull ? "not-allowed" : "pointer",
           background: isFull
-            ? "hsl(220 15% 22%)"
-            : "linear-gradient(135deg, hsl(200 90% 50%), hsl(200 80% 40%))",
-          color: isFull ? "hsl(215 15% 45%)" : "hsl(0 0% 100%)",
+            ? "hsl(0, 0%, 100%)"
+            : "linear-gradient(135deg, hsl(0, 70%, 36%), hsl(245, 80%, 40%))",
+          color: isFull ? "hsl(0, 0%, 100%)" : "hsl(0 0% 100%)",
           fontSize: 13,
           fontWeight: 700,
           letterSpacing: "0.04em",

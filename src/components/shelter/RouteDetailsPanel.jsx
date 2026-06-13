@@ -51,38 +51,38 @@ const RouteDetailsPanel = ({ shelter, distance, duration, isLoading, onClear }) 
 
   return (
     <div
-      style={{
+      className="shelter-list"
+      style={{maxHeight: "30vh", overflowY: "auto", padding: "1px 1px",
         position: "fixed",
         bottom: 10,
         right: 4,
         zIndex: 1000,
         width: 200,
         height:200,
-        background: "hsl(220 22% 12%)",
-        border: "1px solid hsl(220 15% 22%)",
+        background: "hsl(0, 0%, 0%)",
+        border: "1px solid hsl(0, 0%, 100%)",
         borderRadius: 16,
-        boxShadow: "0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px hsl(220 15% 18%)",
-        overflowY: "auto",
-        overflowX:"hidden",
+        boxShadow: "0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px hsl(0, 0%, 0%)",
         fontFamily: "'Inter', system-ui, sans-serif",
+
       }}
     >
       {/* Top accent bar */}
-      <div style={{ height: 3, background: "linear-gradient(90deg, hsl(200 90% 50%), hsl(160 70% 45%))" }} />
+      <div style={{ height: 3, background: "linear-gradient(90deg, hsl(0, 90%, 50%), hsl(239, 70%, 45%))" }} />
 
       {/* Header */}
       <div
         style={{
           padding: "14px 16px 12px",
-          borderBottom: "1px solid hsl(220 15% 18%)",
+          borderBottom: "1px solid hsl(0, 0%, 100%)",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "flex-start",
         }}
       >
         <div style={{ flex: 1, marginRight: 8 }}>
-          <div style={{ fontSize: 10, fontWeight: 600, color: "hsl(200 90% 50%)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>
-            📍 Active Route
+          <div style={{ fontSize: 10, fontWeight: 600, color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>
+            /┆\ Active Route
           </div>
           <div style={{ fontSize: 14, fontWeight: 700, color: "hsl(210 20% 95%)", lineHeight: 1.3 }}>
             {shelter.name}
@@ -91,9 +91,9 @@ const RouteDetailsPanel = ({ shelter, distance, duration, isLoading, onClear }) 
         <button
           onClick={onClear}
           style={{
-            background: "hsl(220 15% 20%)",
+            background: "hsl(0, 0%, 0%)",
             border: "none",
-            color: "hsl(215 15% 55%)",
+            color: "hsl(0, 0%, 100%)",
             cursor: "pointer",
             borderRadius: 6,
             width: 28,
@@ -103,6 +103,7 @@ const RouteDetailsPanel = ({ shelter, distance, duration, isLoading, onClear }) 
             alignItems: "center",
             justifyContent: "center",
             flexShrink: 0,
+            
           }}
           title="Clear route"
         >
@@ -111,9 +112,9 @@ const RouteDetailsPanel = ({ shelter, distance, duration, isLoading, onClear }) 
       </div>
 
       {/* Distance & Time */}
-      <div style={{ padding: "12px 16px", borderBottom: "1px solid hsl(220 15% 18%)" }}>
+      <div style={{ padding: "12px 16px", borderBottom: "1px solid hsl(0, 0%, 0%)" }}>
         {isLoading ? (
-          <div style={{ textAlign: "center", color: "hsl(215 15% 50%)", fontSize: 13, padding: "4px 0" }}>
+          <div style={{ textAlign: "center", color: "hsl(0, 0%, 0%)", fontSize: 13, padding: "4px 0" ,overflow:"hidden", }}>
             ⏳ Calculating route...
           </div>
         ) : (
@@ -126,7 +127,7 @@ const RouteDetailsPanel = ({ shelter, distance, duration, isLoading, onClear }) 
 
       {/* Vital Status Section */}
       <div style={{ padding: "12px 16px" }}>
-        <div style={{ fontSize: 10, fontWeight: 700, color: "hsl(215 15% 50%)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 10 }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: "hsl(0, 0%, 57%)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 10 }}>
           ⚕️ Mas Shelter Status
         </div>
 
