@@ -61,9 +61,9 @@ const ShelterPopup = ({ properties, onNavigate }) => {
           border: "solid black 1px",
           cursor: isFull ? "not-allowed" : "pointer",
           background: isFull
-            ? "hsl(0, 0%, 100%)"
+            ? "hsl(0, 0%, 95%)"
             : "linear-gradient(135deg, hsl(0, 70%, 36%), hsl(245, 80%, 40%))",
-          color: isFull ? "hsl(0, 0%, 100%)" : "hsl(0 0% 100%)",
+          color: isFull ? "hsl(0, 0%, 0%)" : "hsl(0, 69%, 42%)",
           fontSize: 13,
           fontWeight: 700,
           letterSpacing: "0.04em",

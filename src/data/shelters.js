@@ -687,7 +687,7 @@ export const shelterData = {
 ] },
       properties: {
         id: 47,
-        name: "ملجأ مدينة بدر",
+        name: "ملجأ مدينة ميت حلفا",
         address: "شرق الحي المتميز في شارع مدينة الشروق",
         capacity: 8213,
         current_occupancy:2345,
