@@ -7,9 +7,9 @@ const CONFIG = {
     dot: "hsl(145 65% 42%)",
   },
   Good: {
-    color: "hsl(155 60% 48%)",
+    color: "hsl(248, 60%, 48%)",
     bg: "hsl(155 60% 48% / 0.12)",
-    dot: "hsl(155 60% 48%)",
+    dot: "hsl(187, 100%, 50%)",
   },
   Acceptable: {
     color: "hsl(38 90% 55%)",

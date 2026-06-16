@@ -43,8 +43,8 @@ const RoutingMachine = ({ from, to, onRouteFound, onRoutingStart }) => {
       waypointMode: "snap",
       lineOptions: {
         styles: [
-          { color: "hsl(200, 90%, 50%)", opacity: 0.9, weight: 5 },
-          { color: "hsl(200, 90%, 70%)", opacity: 0.3, weight: 9 },
+          { color: "hsl(200, 90%, 50%)", opacity: 0.8, weight: 5 },
+          { color: "hsl(200, 90%, 70%)", opacity: 0.3, weight: 7 },
         ],
         extendToWaypoints: true,
         missingRouteTolerance: 0,

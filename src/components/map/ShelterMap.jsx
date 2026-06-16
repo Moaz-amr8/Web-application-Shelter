@@ -178,8 +178,8 @@ const ShelterMap = () => {
         zoomControl={false}
       >
         <TileLayer
-          url="https://api.maptiler.com/maps/streets-v4/256/{z}/{x}/{y}.png?key=sc8iVWagNCAPDd6PyTM9"
-          attribution='&copy; <a href="https://cloud.maptiler.com//">CARTO</a>'
+          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
+          attribution='&copy; <a href="https://www.esri.com/">Esri</a>'
           maxZoom={20}
         />
 

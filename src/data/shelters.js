@@ -9,10 +9,10 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.5722007751465 ,29.993200302124] },
       properties: {
         id: 1,
-        name: "ملجأ مدينة نصر",
-        address: "الحي سابع مدينة نصر",
-        capacity: 350,
-        current_occupancy: 87,
+        name: "ملجأ الدائري الأوسط",
+        address: "بجوار لافيستا سيتي",
+        capacity: 450,
+        current_occupancy: 350,
         electricity_quality: "Excellent",
         gas_quality: "Good",
       }
@@ -23,11 +23,11 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.4866008758545,29.9918994903564] },
       properties: {
         id : 2,
-        name: "Heliopolis",
-        address: "حديقة الميرلاند",
+        name: "ملجأ احياءابو الهول",
+        address: "علي طريق محور محمد نجيب",
         capacity: 9000,
-        current_occupancy: 1030,
-        electricity_quality: "bad",
+        current_occupancy: 9000,
+        electricity_quality: "Good",
         gas_quality: "Poor",
       }
     },
@@ -38,12 +38,12 @@ export const shelterData = {
       },
       properties: {
         id: 3,
-        name: "محطة وقود موبيل الرحاب",
-        address: "Mobil Gas Station (Rehab)",
+        name: "ملجأ العاصمة الأدارية",
+        address: "بجوار الطريق الدائري الأوسطي",
         capacity: 200,
         current_occupancy: 10,
-        electricity_quality: "bad",
-        gas_quality: "Good",
+        electricity_quality: "Excellent",
+        gas_quality: "Excellent",
       }
     },
     {
@@ -53,8 +53,8 @@ export const shelterData = {
       },
       properties: {
         id: 4,
-        name: "Caltex",
-        address: "شارع عباس العقاد",
+        name: "ملجأ مطار العاصمة 1",
+        address: "بجنوب مطار العاصمة",
         capacity: 10,
         current_occupancy: 0,
         electricity_quality: "Excellent",//bad Good Excellent
@@ -66,8 +66,8 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.8066997528076, 29.9855003356934 ] },
       properties: {
         id: 5,
-        name: "ملجأ fionaر",
-        address: "ر",
+        name: "ملجأ العاصمة 2",
+        address: "علي محور الشيخ محمد بن زايد الجنوبي",
         capacity: 35,
         current_occupancy: 30,
         electricity_quality: "Excellent",
@@ -80,8 +80,8 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.5941009521484,29.9827003479004] },
       properties: {
         id:6 ,
-        name: "2",
-        address: "sa",
+        name: "ملجأ لافيستا سيتي 2",
+        address: "بجوار استاد الكلية الحربية بالكيان العسكري",
         capacity: 900 ,
         current_occupancy: 100,
         electricity_quality: "Excellent",
@@ -94,8 +94,8 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.7688999176025,29.9747009277344] },
       properties: {
         id: 7,
-        name: "2s",
-        address: "s",
+        name: "ملجأ العاصمة الأدارية 3",
+        address: "علي محور الشيخ محمد بن زايد الجنوبي",
         capacity: 1029,
         current_occupancy:213,
         electricity_quality: "Excellent",
@@ -108,8 +108,8 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.6406993865967,29.9782009124756] },
       properties: {
         id: 8,
-        name: "ss",
-        address: "44",
+        name: " ملجأ جاردن سيتي",
+        address: "بجوار جامعة هيرتفوردشاير الإنجليزية-العاصمة الإدارية ",
         capacity:2031 ,
         current_occupancy:400,
         electricity_quality: "Excellent",
@@ -121,8 +121,8 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.4202995300293,29.951000213623] },
       properties: {
         id: 9,
-        name: "sxa",
-        address: "asf",
+        name: "ملجأ التجمع الثالث",
+        address: "علي طريق القطامبة ,العين السخنة",
         capacity: 2901 ,
         current_occupancy: 203,
         electricity_quality: "Excellent",
@@ -135,12 +135,12 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.4050998687744,29.9372997283936] },
       properties: {
         id: 10,
-        name: "ga",
-        address: "adfs",
+        name: "ملجأ التجمع الثالث 2",
+        address: "علي طريق الدائري الأوسطي",
         capacity: 3013,
         current_occupancy:910,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Good",
+        gas_quality:"Acceptable",
       }
     }
     ,
@@ -149,8 +149,8 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.618999481,	29.935499191] },
       properties: {
         id: 11,
-        name: "dj",
-        address: "5x",
+        name: "ملجأ العاصمة 3",
+        address: "بجوار كمبوند الؤلؤة",
         capacity: 912,
         current_occupancy:213,
         electricity_quality: "Excellent",
@@ -162,8 +162,8 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.547100067,29.938400269] },
       properties: {
         id: 12,
-        name: "sdac",
-        address: "hjsj",
+        name: "ملجأ شرق ال waterway",
+        address: "علي طريق الدائري الأوسطي",
         capacity: 1903,
         current_occupancy:230,
         electricity_quality: "Excellent",
@@ -177,8 +177,8 @@ export const shelterData = {
 ] },
       properties: {
         id: 13,
-        name: "shyt",
-        address: "ys",
+        name: "ملجأ NASPS",
+        address: "علي طريق المحاجر",
         capacity: 9221,
         current_occupancy:2021,
         electricity_quality: "Excellent",
@@ -192,8 +192,8 @@ export const shelterData = {
 ] },
       properties: {
         id:14 ,
-        name: "hgs",
-        address: "ryf",
+        name: "ملجأ ملعب العاصمة الأدارية",
+        address: "بجوار محطة العاصمة الأدارية",
         capacity:3021 ,
         current_occupancy:2331,
         electricity_quality: "Excellent",
@@ -207,8 +207,8 @@ export const shelterData = {
 ] },
       properties: {
         id: 15,
-        name: "fgh",
-        address: "agff",
+        name: "ملجأ المحاجر 1",
+        address: "علي الطريق الدائري الأوسطي",
         capacity:9102 ,
         current_occupancy:1021,
         electricity_quality: "Excellent",
@@ -222,8 +222,8 @@ export const shelterData = {
 ] },
       properties: {
         id: 16,
-        name: "jsh",
-        address: "gsh",
+        name: "ملجأ سولي جولف ريزيدنس",
+        address: "علي طريق العين السخنة",
         capacity:9102 ,
         current_occupancy:3121,
         electricity_quality: "Excellent",
@@ -237,8 +237,8 @@ export const shelterData = {
 ] },
       properties: {
         id:17 ,
-        name: "jsy",
-        address: "ghh",
+        name: "ملجأ شق التعبان",
+        address: "علي الطريق الدائري الأوسطي",
         capacity: 4120,
         current_occupancy:1223,
         electricity_quality: "Excellent",
@@ -252,8 +252,8 @@ export const shelterData = {
 ] },
       properties: {
         id:18 ,
-        name: "",
-        address: "",
+        name: "ملجأ جنوب العاصمة الأدارية",
+        address: "علي طريق العين السخنة, القطامية",
         capacity: 8182,
         current_occupancy:1234,
         electricity_quality: "Excellent",
@@ -267,8 +267,8 @@ export const shelterData = {
 ] },
       properties: {
         id:19 ,
-        name: "",
-        address: "",
+        name: "ملجأ طريق حلوان عتاقة",
+        address: "علي طريق حلوان",
         capacity: 7293,
         current_occupancy:1023,
         electricity_quality: "Excellent",
@@ -282,8 +282,8 @@ export const shelterData = {
 ] },
       properties: {
         id:20 ,
-        name: "",
-        address: "",
+        name: "ملجأ طريق المحاجر 2",
+        address: "بجوار التجمع السادس",
         capacity: 7281,
         current_occupancy:5023,
         electricity_quality: "Excellent",
@@ -297,12 +297,12 @@ export const shelterData = {
 ] },
       properties: {
         id: 21,
-        name: "",
-        address: "",
+        name: "ملجأ طريق المحاجر 3",
+        address: "بجوار التجمع السادس",
         capacity: 7261,
         current_occupancy:513,
         electricity_quality: "Excellent",
-        gas_quality: "Poor",
+        gas_quality: "Acceptable",
       }
     }
     ,
@@ -312,8 +312,8 @@ export const shelterData = {
 ] },
       properties: {
         id: 22,
-        name: "",
-        address: "",
+        name: "ملجأ شياخة مايو",
+        address: "علي محور طلعت حرب",
         capacity: 4012,
         current_occupancy:2334,
         electricity_quality: "Excellent",
@@ -327,8 +327,8 @@ export const shelterData = {
 ] },
       properties: {
         id:23 ,
-        name: "",
-        address: "",
+        name: "ملجأ طريق المحاجر 4",
+        address: "بجوار التجمع السادس",
         capacity:9201 ,
         current_occupancy:2921,
         electricity_quality: "Excellent",
@@ -342,12 +342,12 @@ export const shelterData = {
 ] },
       properties: {
         id: 24,
-        name: "",
-        address: "",
+        name: "ملجأ حلوان",
+        address: "علي شارع النقل احمد عبدالعزيز",
         capacity:2134 ,
         current_occupancy:882,
         electricity_quality: "Excellent",
-        gas_quality: "Poor",
+        gas_quality: "Good",
       }
     }
     ,
@@ -357,11 +357,11 @@ export const shelterData = {
 ] },
       properties: {
         id: 25,
-        name: "",
-        address: "",
+        name: "ملجأ الدائري الأقليمي",
+        address: "علي الطريق الدائري الأقليمي",
         capacity:6281 ,
         current_occupancy:3374,
-        electricity_quality: "Excellent",
+        electricity_quality: "Acceptable",
         gas_quality: "Poor",
       }
     }
@@ -372,8 +372,8 @@ export const shelterData = {
 ] },
       properties: {
         id:26 ,
-        name: "",
-        address: "",
+        name: "ملجأ مايو 15",
+        address: "علي طريق الاوتوستراد",
         capacity:8267 ,
         current_occupancy:7812,
         electricity_quality: "Excellent",
@@ -387,12 +387,12 @@ export const shelterData = {
 ] },
       properties: {
         id: 27 ,
-        name: "",
-        address: "",
+        name: "ملجأ المطاريد",
+        address: "جنوب طريق حلوان عتاقة",
         capacity: 7833,
         current_occupancy:2034,
         electricity_quality: "Excellent",
-        gas_quality: "Poor",
+        gas_quality: "Excellent",
       }
     }
     ,
@@ -402,8 +402,8 @@ export const shelterData = {
 ] },
       properties: {
         id: 28,
-        name: "",
-        address: "",
+        name: "ملجأ مايو شياخة 3",
+        address: "شرق شياخة مايو 3 علي طريق الاوتوستراد",
         capacity:21314 ,
         current_occupancy:2190,
         electricity_quality: "Excellent",
@@ -417,8 +417,8 @@ export const shelterData = {
 ] },
       properties: {
         id: 29,
-        name: "",
-        address: "",
+        name: "ملجأ مايو شياخة 1",
+        address: "شرق مدينة مايو شياخة 1",
         capacity:9182 ,
         current_occupancy:441,
         electricity_quality: "Excellent",
@@ -432,8 +432,8 @@ export const shelterData = {
 ] },
       properties: {
         id: 30,
-        name: "",
-        address: "",
+        name: "ملجأ الدائري الأقليمي",
+        address: "جنوب الطريق الدائري الأقليمي",
         capacity:9173 ,
         current_occupancy:918,
         electricity_quality: "Excellent",
@@ -447,8 +447,8 @@ export const shelterData = {
 ] },
       properties: {
         id: 31,
-        name: "",
-        address: "",
+        name: "ملجأ الطريق الدائري الأقليمي 2",
+        address: "جنوب الطريق الدائري الأقليمي",
         capacity:9104 ,
         current_occupancy:514,
         electricity_quality: "Excellent",
@@ -462,8 +462,8 @@ export const shelterData = {
 ] },
       properties: {
         id: 32,
-        name: "",
-        address: "",
+        name: "ملجأ الطريق الدائري الأقليمي 3",
+        address: "جنوب الطريق الدائري الأقليمي",
         capacity:9310 ,
         current_occupancy:655,
         electricity_quality: "Excellent",
@@ -477,12 +477,12 @@ export const shelterData = {
 ] },
       properties: {
         id:33 ,
-        name: "",
-        address: "",
+        name: "ملجأ روما",
+        address: "جنوب الطريق الدائري الأقليمي",
         capacity:8972 ,
         current_occupancy:4423,
         electricity_quality: "Excellent",
-        gas_quality: "Poor",
+        gas_quality: "Good",
       }
     }
     ,
@@ -492,12 +492,12 @@ export const shelterData = {
 ] },
       properties: {
         id:34 ,
-        name: "",
-        address: "",
+        name: "ملجأ شعبي مايو",
+        address: "شرق مايو شياخة 3",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Poor",
+        gas_quality:"Poor",
       }
     }
     ,
@@ -507,12 +507,12 @@ export const shelterData = {
 ] },
       properties: {
         id: 35 ,
-        name: "",
-        address: "",
+        name: "ملجأ الدائري الأقليمي 4",
+        address: "جنوب طريق الدائري الأقليمي",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Good",
+        gas_quality:"Good",
       }
      }
     ,
@@ -522,12 +522,12 @@ export const shelterData = {
 ] },
       properties: {
         id:36 ,
-        name: "",
-        address: "",
+        name: "ملجأ كوم امبو",
+        address: "جنوب الطريق الدائري الأقليمي",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Poor",
+        gas_quality:"Good",
       }
      }
     ,
@@ -537,12 +537,12 @@ export const shelterData = {
 ] },
       properties: {
         id:37 ,
-        name: "",
-        address: "",
+        name: "ملجأ عتاقة",
+        address: "غرب طريق حلوان عتاقة",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Acceptable",
+        gas_quality:"Excellent",
       }
      }
     ,
@@ -552,12 +552,12 @@ export const shelterData = {
 ] },
       properties: {
         id:38 ,
-        name: "",
-        address: "",
+        name: "ملجأ الأفراد",
+        address: "جنوب الطريق الدائري الأقليمي",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Poor",
+        gas_quality:"Good",
       }
      }
     ,
@@ -567,12 +567,12 @@ export const shelterData = {
 ] },
       properties: {
         id: 39,
-        name: "",
-        address: "",
+        name: "ملجأ العين السخنة",
+        address: "بين طريق العين السخنة والطريق الدائري الأقليمي",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Poor",
+        gas_quality:"Poor",
       }
      }
     ,
@@ -582,12 +582,12 @@ export const shelterData = {
 ] },
       properties: {
         id: 40,
-        name: "",
-        address: "",
+        name: "ملجأ اول دائري اقليمي",
+        address: "في جنوب الدائري الأقليمي",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Good",
+        gas_quality:"Good",
       }
      }
     ,
@@ -597,12 +597,12 @@ export const shelterData = {
 ] },
       properties: {
         id:41 ,
-        name: "",
-        address: "",
+        name: "ملجأ منشأة ناصر",
+        address: "في شارع 33 متفرع من شارع المقطم وشارع مسجد ال احمد",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Acceptable",
+        gas_quality:"Good",
       }
      }
     ,
@@ -612,12 +612,12 @@ export const shelterData = {
 ] },
       properties: {
         id:42 ,
-        name: "",
-        address: "",
+        name: "ملجأ الأباجية",
+        address: "في شارع الزهور من شارع الأهرام",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Good",
+        gas_quality:"Acceptable",
       }
      }
     ,
@@ -627,12 +627,12 @@ export const shelterData = {
 ] },
       properties: {
         id:43 ,
-        name: "",
-        address: "",
+        name: "ملجأ مدينة نصر",
+        address: "علي محور الشهيد امام نادي السكة الحديد",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Good",
+        gas_quality:"Excellent",
       }
      }
     ,
@@ -642,12 +642,12 @@ export const shelterData = {
 ] },
       properties: {
         id: 44,
-        name: "",
-        address: "",
+        name: "ملجأ المشير طنطاوي",
+        address: "علي محور المشير طنطاوي طريق المدرعات",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Good",
+        gas_quality:"Good",
       }
      }
     ,
@@ -657,10 +657,10 @@ export const shelterData = {
 ] },
       properties: {
         id:45 ,
-        name: "",
-        address: "",
-        capacity: 8213,
-        current_occupancy:2345,
+        name: "ملجأ اكاديمية الشرطة ",
+        address: "غرب الأكاديمية علي الطريق الدائري",
+        capacity: 8214,
+        current_occupancy:8213,
         electricity_quality:"Acceptable",
         gas_quality:"Acceptable",
       }
@@ -672,12 +672,12 @@ export const shelterData = {
 ] },
       properties: {
         id:46 ,
-        name: "",
-        address: "",
+        name: "ملجأ الحي العاشر",
+        address: "في شارع عمر ابن الخطاب متفرع من شارع الميثاق",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Excellent",
+        gas_quality:"Good",
       }
      }
     ,
@@ -687,12 +687,12 @@ export const shelterData = {
 ] },
       properties: {
         id: 47,
-        name: "",
-        address: "",
+        name: "ملجأ مدينة بدر",
+        address: "شرق الحي المتميز في شارع مدينة الشروق",
         capacity: 8213,
         current_occupancy:2345,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Poor",
+        gas_quality:"Good",
       }
      }
     ,
@@ -701,12 +701,12 @@ export const shelterData = {
       geometry: { type: "Point", coordinates: [31.697299957, 30.068300247] },
       properties: {
         id: 48,
-        name: "",
-        address: "",
+        name: "ملجأ المستقبل",
+        address: "علي طريق المستقبل وجنوب طريق القاهرة السويس",
         capacity: 2341,
         current_occupancy: 992,
-        electricity_quality:"",
-        gas_quality:"",
+        electricity_quality:"Excellent",
+        gas_quality:"Good",
         
       }
      }
